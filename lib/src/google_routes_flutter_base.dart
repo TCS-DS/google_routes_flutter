@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:google_routes_flutter/src/compute_routes_result/compute_routes_result.dart';
 import 'package:google_routes_flutter/src/extra_computation/extra_computation.dart';
 import 'package:google_routes_flutter/src/polyline_encoding/polyline_encoding.dart';
@@ -127,6 +128,8 @@ Future<ComputeRouteResult> computeRoute({
   required Waypoint destination,
   required String xGoogFieldMask,
   required String apiKey,
+  String? packageName,
+  String? buildSignature,
   List<Waypoint>? intermediates,
   TravelMode? travelMode,
   RoutingPreference? routingPreference,
@@ -150,39 +153,31 @@ Future<ComputeRouteResult> computeRoute({
     headers: {
       'X-Goog-Api-Key': apiKey,
       'X-Goog-FieldMask': xGoogFieldMask,
+      if (Platform.isIOS && packageName != null) 'X-Ios-Bundle-Identifier': packageName,
+      if (Platform.isAndroid && packageName != null) 'X-Android-Package': packageName,
+      if (Platform.isAndroid && buildSignature != null) 'X-Android-Cert': buildSignature,
     },
     body: jsonEncode(
       {
         'origin': origin.toJson(),
         'destination': destination.toJson(),
-        if (intermediates != null)
-          'intermediates': intermediates.map((i) => i.toJson()).toList(),
+        if (intermediates != null) 'intermediates': intermediates.map((i) => i.toJson()).toList(),
         if (travelMode != null) 'travelMode': travelMode.toJson(),
-        if (routingPreference != null)
-          'routingPreference': routingPreference.toJson(),
-        if (polyLineQuality != null)
-          'polylineQuality': polyLineQuality.toJson(),
-        if (polyLineEncoding != null)
-          'polylineEncoding': polyLineEncoding.toJson(),
+        if (routingPreference != null) 'routingPreference': routingPreference.toJson(),
+        if (polyLineQuality != null) 'polylineQuality': polyLineQuality.toJson(),
+        if (polyLineEncoding != null) 'polylineEncoding': polyLineEncoding.toJson(),
         if (departureTime != null) 'departureTime': departureTime,
         if (arrivalTime != null) 'arrivalTime': arrivalTime,
-        if (computeAlternativeRoutes != null)
-          'computeAlternativeRoutes': computeAlternativeRoutes,
+        if (computeAlternativeRoutes != null) 'computeAlternativeRoutes': computeAlternativeRoutes,
         if (routeModifiers != null) 'routeModifiers': routeModifiers.toJson(),
         if (languageCode != null) 'languageCode': languageCode,
         if (regionCode != null) 'regionCode': regionCode,
         if (units != null) 'units': units.toJson(),
-        if (optimizeWaypointOrder != null)
-          'optimizeWaypointOrder': optimizeWaypointOrder,
-        if (requestedReferenceRoutes != null)
-          'requestedReferenceRoutes':
-              requestedReferenceRoutes.map((r) => r.toJson()).toList(),
-        if (extraComputations != null)
-          'extraComputations':
-              extraComputations.map((c) => c.toJson()).toList(),
+        if (optimizeWaypointOrder != null) 'optimizeWaypointOrder': optimizeWaypointOrder,
+        if (requestedReferenceRoutes != null) 'requestedReferenceRoutes': requestedReferenceRoutes.map((r) => r.toJson()).toList(),
+        if (extraComputations != null) 'extraComputations': extraComputations.map((c) => c.toJson()).toList(),
         if (trafficModel != null) 'trafficModel': trafficModel.toJson(),
-        if (transitPreferences != null)
-          'transitPreferences': transitPreferences.toJson(),
+        if (transitPreferences != null) 'transitPreferences': transitPreferences.toJson(),
       },
     ),
   );
@@ -275,6 +270,8 @@ Future<List<RouteMatrixEntry>> computeRouteMatrix({
   required List<RouteMatrixDestination> destinations,
   required String xGoogFieldMask,
   required String apiKey,
+  String? packageName,
+  String? buildSignature,
   TravelMode? travelMode,
   RoutingPreference? routingPreference,
   String? departureTime,
@@ -286,29 +283,27 @@ Future<List<RouteMatrixEntry>> computeRouteMatrix({
   TransitPreferences? transitPreferences,
 }) async {
   final http.Response response = await http.post(
-    Uri.parse(
-        'https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix'),
+    Uri.parse('https://routes.googleapis.com/distanceMatrix/v2:computeRouteMatrix'),
     headers: {
       'X-Goog-Api-Key': apiKey,
       'X-Goog-FieldMask': xGoogFieldMask,
+      if (Platform.isIOS && packageName != null) 'X-Ios-Bundle-Identifier': packageName,
+      if (Platform.isAndroid && packageName != null) 'X-Android-Package': packageName,
+      if (Platform.isAndroid && buildSignature != null) 'X-Android-Cert': buildSignature,
     },
     body: jsonEncode(
       {
         'origins': origins.map((o) => o.toJson()).toList(),
         'destinations': destinations.map((d) => d.toJson()).toList(),
         if (travelMode != null) 'travelMode': travelMode.toJson(),
-        if (routingPreference != null)
-          'routingPreference': routingPreference.toJson(),
+        if (routingPreference != null) 'routingPreference': routingPreference.toJson(),
         if (departureTime != null) 'departureTime': departureTime,
         if (arrivalTime != null) 'arrivalTime': arrivalTime,
         if (languageCode != null) 'languageCode': languageCode,
         if (regionCode != null) 'regionCode': regionCode,
-        if (extraComputations != null)
-          'extraComputations':
-              extraComputations.map((e) => e.toJson()).toList(),
+        if (extraComputations != null) 'extraComputations': extraComputations.map((e) => e.toJson()).toList(),
         if (trafficModel != null) 'trafficModel': trafficModel.toJson(),
-        if (transitPreferences != null)
-          'transitPreferences': transitPreferences.toJson(),
+        if (transitPreferences != null) 'transitPreferences': transitPreferences.toJson(),
       },
     ),
   );
