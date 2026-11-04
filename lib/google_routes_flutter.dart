@@ -1,5 +1,3 @@
-library google_routes_flutter;
-
 export 'src/google_routes_flutter_base.dart';
 
 export 'src/compute_route_matrix_result/compute_route_matrix_result.dart';
