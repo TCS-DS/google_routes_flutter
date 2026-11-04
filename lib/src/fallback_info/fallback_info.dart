@@ -12,11 +12,13 @@ class FallbackInfo {
   /// Routing mode used for the response. If fallback was triggered, the mode
   /// may be different from routing preference set in the original client
   /// request.
+  @JsonKey(unknownEnumValue: FallbackRoutingMode.fallbackRoutingModeUnspecified)
   final FallbackRoutingMode? routingMode;
 
   /// The reason why fallback response was used instead of the original
   /// response. This field is only populated when the fallback mode is triggered
   /// and the fallback response is returned.
+  @JsonKey(unknownEnumValue: FallbackReason.fallbackReasonUnspecified)
   final FallbackReason? reason;
 
   const FallbackInfo({

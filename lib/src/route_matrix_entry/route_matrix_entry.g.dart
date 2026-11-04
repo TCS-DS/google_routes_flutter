@@ -12,7 +12,9 @@ RouteMatrixEntry _$RouteMatrixEntryFromJson(Map<String, dynamic> json) =>
           ? null
           : Status.fromJson(json['status'] as Map<String, dynamic>),
       condition: $enumDecodeNullable(
-          _$RouteMatrixElementConditionEnumMap, json['condition']),
+          _$RouteMatrixElementConditionEnumMap, json['condition'],
+          unknownValue: RouteMatrixElementCondition
+              .routeMatrixElementConditionUnspecified),
       distanceMeters: json['distanceMeters'] as int?,
       duration: json['duration'] as String?,
       staticDuration: json['staticDuration'] as String?,

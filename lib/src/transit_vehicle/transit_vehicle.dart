@@ -11,6 +11,7 @@ class TransitVehicle {
   final LocalizedText? name;
 
   /// The type of vehicle used.
+  @JsonKey(unknownEnumValue: TransitVehicleType.transitVehicleTypeUnspecified)
   final TransitVehicleType? type;
 
   /// The URI for an icon associated with this vehicle type.

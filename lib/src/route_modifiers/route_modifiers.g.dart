@@ -16,7 +16,8 @@ RouteModifiers _$RouteModifiersFromJson(Map<String, dynamic> json) =>
           ? null
           : VehicleInfo.fromJson(json['vehicleInfo'] as Map<String, dynamic>),
       tollPasses: (json['tollPasses'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$TollPassEnumMap, e))
+          ?.map((e) => $enumDecode(_$TollPassEnumMap, e,
+              unknownValue: TollPass.TOLL_PASS_UNSPECIFIED))
           .toList(),
     );
 

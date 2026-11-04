@@ -11,7 +11,8 @@ TransitVehicle _$TransitVehicleFromJson(Map<String, dynamic> json) =>
       name: json['name'] == null
           ? null
           : LocalizedText.fromJson(json['name'] as Map<String, dynamic>),
-      type: $enumDecodeNullable(_$TransitVehicleTypeEnumMap, json['type']),
+      type: $enumDecodeNullable(_$TransitVehicleTypeEnumMap, json['type'],
+          unknownValue: TransitVehicleType.transitVehicleTypeUnspecified),
       iconUri: json['iconUri'] as String?,
       localIconUri: json['localIconUri'] as String?,
     );

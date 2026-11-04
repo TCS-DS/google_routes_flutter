@@ -8,7 +8,8 @@ part of 'vehicle_info.dart';
 
 VehicleInfo _$VehicleInfoFromJson(Map<String, dynamic> json) => VehicleInfo(
       emissionType: $enumDecodeNullable(
-          _$VehicleEmissionTypeEnumMap, json['emissionType']),
+          _$VehicleEmissionTypeEnumMap, json['emissionType'],
+          unknownValue: VehicleEmissionType.vehicleEmissionTypeUnspecified),
     );
 
 Map<String, dynamic> _$VehicleInfoToJson(VehicleInfo instance) =>

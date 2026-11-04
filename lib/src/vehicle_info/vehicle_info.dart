@@ -8,6 +8,7 @@ part 'vehicle_info.g.dart';
 class VehicleInfo {
   /// Describes the vehicle's emission type. Applies only to the DRIVE
   /// RouteTravelMode.
+  @JsonKey(unknownEnumValue: VehicleEmissionType.vehicleEmissionTypeUnspecified)
   final VehicleEmissionType? emissionType;
 
   VehicleInfo({

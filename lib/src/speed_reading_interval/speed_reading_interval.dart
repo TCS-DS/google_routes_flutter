@@ -16,6 +16,7 @@ class SpeedReadingInterval {
   final int? endPolylinePointIndex;
 
   /// Traffic speed in this interval.
+  @JsonKey(unknownEnumValue: Speed.speedUnspecified)
   final Speed? speed;
 
   const SpeedReadingInterval({

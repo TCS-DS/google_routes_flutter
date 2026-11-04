@@ -6,7 +6,7 @@ part 'transit_travel_mode.g.dart';
 @JsonEnum(alwaysCreate: true)
 enum TransitTravelMode {
   /// No transit travel mode specified.
-  @JsonValue('TRANSIT_TRAVEL_MODE_UNSPECIFIED	')
+  @JsonValue('TRANSIT_TRAVEL_MODE_UNSPECIFIED')
   transitTravelModeUnspecified,
 
   /// Travel by bus.

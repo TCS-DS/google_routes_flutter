@@ -22,6 +22,7 @@ class RouteLegStep {
   final RouteLegStepTravelAdvisory? travelAdvisory;
   final RouteLegStepLocalizedValues? localizedValues;
   final RouteLegStepTransitDetails? transitDetails;
+  @JsonKey(unknownEnumValue: RouteTravelMode.travelModeUnspecified)
   final RouteTravelMode? travelMode;
 
   RouteLegStep({
