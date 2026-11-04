@@ -14,6 +14,7 @@ class MultiModalSegment {
   final NavigationInstruction? navigationInstruction;
 
   /// The travel mode of the multi-modal segment.
+  @JsonKey(unknownEnumValue: RouteTravelMode.travelModeUnspecified)
   final RouteTravelMode? travelMode;
 
   /// The corresponding RouteLegStep index that is the start of a multi-modal

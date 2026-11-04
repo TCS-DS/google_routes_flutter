@@ -8,8 +8,10 @@ part of 'fallback_info.dart';
 
 FallbackInfo _$FallbackInfoFromJson(Map<String, dynamic> json) => FallbackInfo(
       routingMode: $enumDecodeNullable(
-          _$FallbackRoutingModeEnumMap, json['routingMode']),
-      reason: $enumDecodeNullable(_$FallbackReasonEnumMap, json['reason']),
+          _$FallbackRoutingModeEnumMap, json['routingMode'],
+          unknownValue: FallbackRoutingMode.fallbackRoutingModeUnspecified),
+      reason: $enumDecodeNullable(_$FallbackReasonEnumMap, json['reason'],
+          unknownValue: FallbackReason.fallbackReasonUnspecified),
     );
 
 Map<String, dynamic> _$FallbackInfoToJson(FallbackInfo instance) =>

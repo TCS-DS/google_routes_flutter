@@ -9,7 +9,8 @@ part of 'navigation_instruction.dart';
 NavigationInstruction _$NavigationInstructionFromJson(
         Map<String, dynamic> json) =>
     NavigationInstruction(
-      maneuver: $enumDecodeNullable(_$ManeuverEnumMap, json['maneuver']),
+      maneuver: $enumDecodeNullable(_$ManeuverEnumMap, json['maneuver'],
+          unknownValue: Maneuver.maneuverUnspecified),
       instructions: json['instructions'] as String?,
     );
 
@@ -42,4 +43,5 @@ const _$ManeuverEnumMap = {
   Maneuver.roundaboutRight: 'ROUNDABOUT_RIGHT',
   Maneuver.depart: 'DEPART',
   Maneuver.nameChange: 'NAME_CHANGE',
+  Maneuver.destination: 'DESTINATION',
 };

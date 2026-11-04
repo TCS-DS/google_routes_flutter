@@ -28,4 +28,5 @@ const _$ManeuverEnumMap = {
   Maneuver.roundaboutRight: 'ROUNDABOUT_RIGHT',
   Maneuver.depart: 'DEPART',
   Maneuver.nameChange: 'NAME_CHANGE',
+  Maneuver.destination: 'DESTINATION',
 };

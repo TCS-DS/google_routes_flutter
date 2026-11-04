@@ -9,10 +9,13 @@ part of 'transit_preferences.dart';
 TransitPreferences _$TransitPreferencesFromJson(Map<String, dynamic> json) =>
     TransitPreferences(
       allowedTravelModes: (json['allowedTravelModes'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$TransitTravelModeEnumMap, e))
+          ?.map((e) => $enumDecode(_$TransitTravelModeEnumMap, e,
+              unknownValue: TransitTravelMode.transitTravelModeUnspecified))
           .toList(),
       routingPreference: $enumDecodeNullable(
-          _$TransitRoutingPreferenceEnumMap, json['routingPreference']),
+          _$TransitRoutingPreferenceEnumMap, json['routingPreference'],
+          unknownValue:
+              TransitRoutingPreference.transitRoutingPreferenceUnspecified),
     );
 
 Map<String, dynamic> _$TransitPreferencesToJson(TransitPreferences instance) =>
@@ -26,7 +29,7 @@ Map<String, dynamic> _$TransitPreferencesToJson(TransitPreferences instance) =>
 
 const _$TransitTravelModeEnumMap = {
   TransitTravelMode.transitTravelModeUnspecified:
-      'TRANSIT_TRAVEL_MODE_UNSPECIFIED\t',
+      'TRANSIT_TRAVEL_MODE_UNSPECIFIED',
   TransitTravelMode.bus: 'BUS',
   TransitTravelMode.subway: 'SUBWAY',
   TransitTravelMode.train: 'TRAIN',

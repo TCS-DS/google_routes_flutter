@@ -34,8 +34,9 @@ RouteLegStep _$RouteLegStepFromJson(Map<String, dynamic> json) => RouteLegStep(
           ? null
           : RouteLegStepTransitDetails.fromJson(
               json['transitDetails'] as Map<String, dynamic>),
-      travelMode:
-          $enumDecodeNullable(_$RouteTravelModeEnumMap, json['travelMode']),
+      travelMode: $enumDecodeNullable(
+          _$RouteTravelModeEnumMap, json['travelMode'],
+          unknownValue: RouteTravelMode.travelModeUnspecified),
     );
 
 Map<String, dynamic> _$RouteLegStepToJson(RouteLegStep instance) =>

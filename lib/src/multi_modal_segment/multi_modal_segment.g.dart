@@ -12,8 +12,9 @@ MultiModalSegment _$MultiModalSegmentFromJson(Map<String, dynamic> json) =>
           ? null
           : NavigationInstruction.fromJson(
               json['navigationInstruction'] as Map<String, dynamic>),
-      travelMode:
-          $enumDecodeNullable(_$RouteTravelModeEnumMap, json['travelMode']),
+      travelMode: $enumDecodeNullable(
+          _$RouteTravelModeEnumMap, json['travelMode'],
+          unknownValue: RouteTravelMode.travelModeUnspecified),
       stepStartIndex: json['stepStartIndex'] as int?,
       stepEndIndex: json['stepEndIndex'] as int?,
     );

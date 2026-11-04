@@ -8,7 +8,8 @@ part of 'route.dart';
 
 Route _$RouteFromJson(Map<String, dynamic> json) => Route(
       routeLabels: (json['routeLabels'] as List<dynamic>?)
-          ?.map((e) => $enumDecode(_$RouteLabelEnumMap, e))
+          ?.map((e) => $enumDecode(_$RouteLabelEnumMap, e,
+              unknownValue: RouteLabel.routeLabelUnspecified))
           .toList(),
       legs: (json['legs'] as List<dynamic>?)
           ?.map((e) => RouteLeg.fromJson(e as Map<String, dynamic>))

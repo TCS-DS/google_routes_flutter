@@ -8,7 +8,7 @@ part of 'transit_travel_mode.dart';
 
 const _$TransitTravelModeEnumMap = {
   TransitTravelMode.transitTravelModeUnspecified:
-      'TRANSIT_TRAVEL_MODE_UNSPECIFIED\t',
+      'TRANSIT_TRAVEL_MODE_UNSPECIFIED',
   TransitTravelMode.bus: 'BUS',
   TransitTravelMode.subway: 'SUBWAY',
   TransitTravelMode.train: 'TRAIN',

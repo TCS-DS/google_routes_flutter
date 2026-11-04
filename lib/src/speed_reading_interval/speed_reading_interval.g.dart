@@ -11,7 +11,8 @@ SpeedReadingInterval _$SpeedReadingIntervalFromJson(
     SpeedReadingInterval(
       startPolylinePointIndex: json['startPolylinePointIndex'] as int?,
       endPolylinePointIndex: json['endPolylinePointIndex'] as int?,
-      speed: $enumDecodeNullable(_$SpeedEnumMap, json['speed']),
+      speed: $enumDecodeNullable(_$SpeedEnumMap, json['speed'],
+          unknownValue: Speed.speedUnspecified),
     );
 
 Map<String, dynamic> _$SpeedReadingIntervalToJson(

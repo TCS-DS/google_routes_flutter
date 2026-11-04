@@ -10,10 +10,12 @@ part 'transit_preferences.g.dart';
 class TransitPreferences {
   /// A set of travel modes to use when getting a TRANSIT route. Defaults to all
   /// supported modes of travel.
+  @JsonKey(unknownEnumValue: TransitTravelMode.transitTravelModeUnspecified)
   final List<TransitTravelMode>? allowedTravelModes;
 
   /// A routing preference that, when specified, influences the TRANSIT route
   /// returned.
+  @JsonKey(unknownEnumValue: TransitRoutingPreference.transitRoutingPreferenceUnspecified)
   final TransitRoutingPreference? routingPreference;
 
   TransitPreferences({

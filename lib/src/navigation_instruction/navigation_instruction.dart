@@ -9,6 +9,7 @@ class NavigationInstruction {
   /// Encapsulates the navigation instructions for the current step
   /// (e.g., turn left, merge, straight, etc.). This field determines which
   /// icon to display.
+  @JsonKey(unknownEnumValue: Maneuver.maneuverUnspecified)
   final Maneuver? maneuver;
 
   /// Instructions for navigating this step.

@@ -13,6 +13,7 @@ part 'route_matrix_entry.g.dart';
 @JsonSerializable()
 class RouteMatrixEntry {
   final Status? status;
+  @JsonKey(unknownEnumValue: RouteMatrixElementCondition.routeMatrixElementConditionUnspecified)
   final RouteMatrixElementCondition? condition;
   final int? distanceMeters;
   final String? duration;

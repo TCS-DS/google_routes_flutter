@@ -34,6 +34,7 @@ class RouteModifiers {
   /// the API tries to return the pass price. If toll passes are not provided,
   /// the API treats the toll pass as unknown and tries to return the cash
   /// price. Applies only to the DRIVE and TWO_WHEELER RouteTravelMode.
+  @JsonKey(unknownEnumValue: TollPass.TOLL_PASS_UNSPECIFIED)
   final List<TollPass>? tollPasses;
 
   RouteModifiers({

@@ -14,6 +14,7 @@ part 'route.g.dart';
 class Route {
   /// Labels for the Route that are useful to identify specific properties of
   /// the route to compare against others.
+  @JsonKey(unknownEnumValue: RouteLabel.routeLabelUnspecified)
   final List<RouteLabel>? routeLabels;
 
   /// A collection of legs (path segments between waypoints) that make up the
