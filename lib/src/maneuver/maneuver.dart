@@ -88,7 +88,11 @@ enum Maneuver {
 
   /// Used to indicate a street name change.
   @JsonValue('NAME_CHANGE')
-  nameChange;
+  nameChange,
+
+  /// Used to indicate arrival at a destination.
+  @JsonValue('DESTINATION')
+  destination;
 
   String? toJson() => _$ManeuverEnumMap[this];
 }
